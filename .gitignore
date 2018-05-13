@@ -1,0 +1,10 @@
+# Ignore everything
+/*
+
+# But not these files...
+!.gitignore
+!README.md
+# etc...
+
+# in subdirectories
+!solution/
