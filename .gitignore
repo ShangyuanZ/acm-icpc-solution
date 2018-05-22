@@ -8,3 +8,4 @@
 
 # in subdirectories
 !solution/
+solution/.DS_Store
