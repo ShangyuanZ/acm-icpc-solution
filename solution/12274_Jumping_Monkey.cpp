@@ -15,25 +15,25 @@ bool bfs(long root, queue<long> Q, long *neighbor, int n){
 	Q.push(root);
 
 	while(!Q.empty()){
-		int u = Q.front();
+		int now = Q.front();
 		Q.pop();
 
-		for(int i = 0; i < n; i++){
-			int v = 0;
-			if(u & (1 << i)){
-				for(int j = 0; j < n; j++)
-					if (u & (1 << j) && j != i)
-						v = v | neighbor[j];
+		for(int i = 0; i < n; i++){ //shot
+			int next = 0;
+			if(now & (1 << i)){
+				for(int j = 0; j < n; j++) 
+					if (now & (1 << j) && j != i)
+						next = next | neighbor[j];
 
 				
-				if (checked[v] == 0){
-					checked[v] = 1;
-					output[v] = i;
-					save_path[v] = u;
+				if (checked[next] == 0){
+					checked[next] = 1;
+					output[next] = i;
+					save_path[next] = now;
 
-					Q.push(v);
+					Q.push(next);
 
-					if(v == 0){
+					if(next == 0){
 						return 1;
 					}
 				}
@@ -69,8 +69,8 @@ int main(){
 		//initialization
 		memset(neighbor, 0, sizeof(neighbor));
 		memset(checked, 0, sizeof(checked));
-		memset(output, 0, sizeof(checked));
-		memset(save_path, 0, sizeof(checked));
+		memset(output, 0, sizeof(output));
+		memset(save_path, 0, sizeof(save_path));
 		while(!Q.empty()) Q.pop();
 		answer.clear();
 		
