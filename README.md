@@ -1,3 +1,3 @@
 # ACM_ICPC
 
-Here are some solotions for the problems ACM.
+Some solotions for ACM-ICPC problems.
